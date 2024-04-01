@@ -24,12 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-zw7ey$#4+x2xbhz=gnukx=(g^x2-*abx!3p1%3(q59t!^jm$zm"
 
+# SECRET_KEY = "django-insecure-zw7ey$#4+x2xbhz=gnukx=(g^x2-*abx!3p1%3(q59t!^jm$zm"
+SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://smart-care-8y5l.onrender.com','https://*.127.0.0.1'] # first part will be your deploy project’s domain name
 
 
 # Application definition
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
      'rest_framework.authtoken',
+     'django_filters',
      'appointment',
     'contact_us',
     'doctor',
